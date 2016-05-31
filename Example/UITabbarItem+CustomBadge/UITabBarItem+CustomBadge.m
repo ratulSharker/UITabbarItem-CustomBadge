@@ -56,21 +56,22 @@ NSMutableDictionary *customBadgeLabels;
             customBadge = [[UILabel alloc] initWithFrame:CGRectZero];
             customBadge.textAlignment = NSTextAlignmentCenter;
             customBadge.textColor = [UIColor whiteColor];
-            customBadge.backgroundColor = [UIColor redColor];
+            customBadge.backgroundColor = [UIColor purpleColor];
             [customBadge setUserInteractionEnabled:FALSE];
             customBadge.font = [UIFont systemFontOfSize:DEFAULT_FONT_SIZE];
             customBadge.clipsToBounds = YES;
-            
-            
-            customBadge.layer.shadowColor = [UIColor whiteColor].CGColor;
-            customBadge.layer.shadowOffset = CGSizeMake(1, 1);
-            customBadge.layer.shadowOpacity = 0.8;
-            customBadge.layer.shadowRadius = 1.0;
             
             [customBadgeLabels setObject:customBadge
                                   forKey:[NSString stringWithFormat:@"%ld", self.hash]];
             
             [sv addSubview:customBadge];
+            
+            //
+            //
+            //
+            customBadge.alpha = 0.0;
+            customBadge.hidden = YES;
+            
         }
         
         //
@@ -84,7 +85,17 @@ NSMutableDictionary *customBadgeLabels;
             //  set the text value
             
             customBadge.hidden = NO;
-            customBadge.text = value;
+            [UIView animateWithDuration:0.5
+                             animations:^{
+                                 customBadge.alpha = 1.0;
+                             }];
+            
+            
+            [UIView transitionWithView:customBadge duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                customBadge.text = value;
+            } completion:nil];
+            
+            
             
             
             //resize according to the size of the text
@@ -99,19 +110,23 @@ NSMutableDictionary *customBadgeLabels;
             double width = rect.size.width + 2 * LEFT_RIGHT_PADDING;    //  space allowance for padding
             width = (width < DEFAULT_HEIGHT) ? DEFAULT_HEIGHT : width;  //  width must be greater or equal to height
             
+            //corner radius is set prior, because of the animation
+            customBadge.layer.cornerRadius = MIN(width,
+                                                 DEFAULT_HEIGHT) / 2;
+            
             customBadge.frame = CGRectMake(sv.frame.size.width - width - LEFT_RIGHT_PADDING,
                                            Y_POSITION_MARGIN,
                                            width,
                                            DEFAULT_HEIGHT);
-            
-            
-            customBadge.layer.cornerRadius = MIN(customBadge.frame.size.width,
-                                                 customBadge.frame.size.height) / 2;
-            
         }
         else
         {
-            customBadge.hidden = YES;
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                customBadge.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                customBadge.hidden = YES;
+            }];
             customBadge.text = @"";
         }
     }
