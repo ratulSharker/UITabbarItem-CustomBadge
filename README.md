@@ -12,6 +12,9 @@ change the badge value settings related function calls. This is how the whole th
 
 This project is under the MIT Liecense, feel free to use this code base under compilance.
 
+##Installation
+Installation of `UITabbarItem+CustomBadge` is easy, just add [UITabbarItem+CustomBadge](https://github.com/ratulSharker/UITabbarItem-CustomBadge/tree/master/Example/UITabbarItem%2BCustomBadge) category in your xcode project. Change the content of this category to meet your requiremnt and you're good to go.
+
 ##Demo
 <img src='https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/ratul_adding_configurable_properties/demo/UITabbarItem%2BCustomBadge%2BDemo.gif'>
 
