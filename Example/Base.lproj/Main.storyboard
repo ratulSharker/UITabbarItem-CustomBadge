@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -151,15 +152,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gco-ca-9yC">
+                                <rect key="frame" x="0.0" y="494" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="Y5o-pr-GWg"/>
+                                    <tabBarItem systemItem="more" id="oK0-1J-JmF"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.79081900167785235" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="gco-ca-9yC" secondAttribute="bottom" constant="8" id="1Xl-WO-nfd"/>
                             <constraint firstItem="IPw-Yh-13A" firstAttribute="top" secondItem="VqG-tJ-Aaf" secondAttribute="bottom" constant="8" id="8ST-0D-AP9"/>
                             <constraint firstAttribute="leading" secondItem="fjH-wQ-gX2" secondAttribute="leading" constant="-20" id="Hzr-kX-LAU"/>
                             <constraint firstItem="Ghu-QO-v9O" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="Jdw-LJ-YAZ"/>
                             <constraint firstItem="ZPT-RH-BkU" firstAttribute="top" secondItem="VqG-tJ-Aaf" secondAttribute="bottom" constant="8" id="KF2-ZD-1WL"/>
                             <constraint firstAttribute="trailing" secondItem="IPw-Yh-13A" secondAttribute="trailing" constant="20" id="L39-2F-ljY"/>
                             <constraint firstAttribute="trailing" secondItem="VqG-tJ-Aaf" secondAttribute="trailing" constant="20" id="OLD-7q-VjL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gco-ca-9yC" secondAttribute="trailing" constant="-20" id="P5Q-J2-M28"/>
                             <constraint firstAttribute="trailing" secondItem="5wC-fS-TVF" secondAttribute="trailing" constant="20" id="Pus-tg-t0F"/>
                             <constraint firstItem="VqG-tJ-Aaf" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="Qgp-jb-fdX"/>
                             <constraint firstItem="6N9-XJ-sIG" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="SE7-On-NOx"/>
@@ -167,6 +178,7 @@
                             <constraint firstItem="VqG-tJ-Aaf" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="Vea-e0-Moj"/>
                             <constraint firstItem="fjH-wQ-gX2" firstAttribute="top" secondItem="ZPT-RH-BkU" secondAttribute="bottom" constant="20" id="Vfo-FK-fpS"/>
                             <constraint firstItem="Ghu-QO-v9O" firstAttribute="top" secondItem="fjH-wQ-gX2" secondAttribute="bottom" constant="8" id="e6g-TC-8sU"/>
+                            <constraint firstItem="gco-ca-9yC" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="hPj-Ov-dbE"/>
                             <constraint firstItem="6N9-XJ-sIG" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="jFZ-rD-j9w"/>
                             <constraint firstAttribute="trailing" secondItem="fjH-wQ-gX2" secondAttribute="trailing" constant="20" id="rIf-FA-XEv"/>
                             <constraint firstItem="5wC-fS-TVF" firstAttribute="top" secondItem="fjH-wQ-gX2" secondAttribute="bottom" constant="8" id="uCf-8n-5fa"/>
@@ -176,6 +188,7 @@
                     <connections>
                         <outlet property="mViewStepNumberLabel" destination="5wC-fS-TVF" id="AjB-L1-cyM"/>
                         <outlet property="mViewStepSizeLabel" destination="IPw-Yh-13A" id="y3E-Ua-dRz"/>
+                        <outlet property="secondTabbar" destination="gco-ca-9yC" id="ZoY-NP-fdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

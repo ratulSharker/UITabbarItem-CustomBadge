@@ -14,6 +14,9 @@
     
     unsigned int stepSize;
     unsigned int steps;
+    
+    IBOutlet UITabBar *secondTabbar;
+    
 }
 @end
 
@@ -48,6 +51,16 @@
     
     mViewStepNumberLabel.text = text;
     self.tabBarController.tabBar.items[1].badgeValue = text;
+    
+    
+    //
+    //  another secondary dummy UITabbar added
+    //  for the checking that, it will work
+    //  on every UITabbar instance on the current
+    //  application
+    //
+    secondTabbar.items[0].badgeValue = text;
+    secondTabbar.items[1].badgeValue = text;
 }
 
 -(IBAction)clearBadgeValue:(id)sender
