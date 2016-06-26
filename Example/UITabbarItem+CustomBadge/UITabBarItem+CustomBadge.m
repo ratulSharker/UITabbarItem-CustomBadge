@@ -6,42 +6,25 @@
 //
 
 #import "UITabBarItem+CustomBadge.h"
-
-//
-//  SIZING RELATED MACROS
-//
-#define UITABBAR_CUSTOMBADGE_TOP_BOTTOM_PADDING  2
-#define UITABBAR_CUSTOMBADGE_LEFT_RIGHT_PADDING  4
-#define UITABBAR_CUSTOMBADGE_HEIGHT             18
-#define UITABBAR_CUSTOMBADGE_Y_POSITION_MARGIN  -5
-#define UITABBAR_CUSTOMBADGE_BORDER_WIDTH       0.75
-
-//
-//  COLOR RELATED MACROS
-//
-#define UITABBAR_CUSTOMBADGE_BACKGROUND_COLOR   [UIColor yellowColor]
-#define UITABBAR_CUSTOMBADGE_TEXT_COLOR         [UIColor redColor]
-#define UITABBAR_CUSTOMBADGE_BORDER_COLOR       [UIColor redColor]
-
-//
-//  ANIMATION TIME RELATED MACROS
-//
-#define UITABBAR_CUSTOMBADGE_TEXT_TRANSITION_DURATION 0.5
-#define UITABBAR_CUSTOMBADGE_SHOW_HIDE_FADE_ANIMATION_DURATION 0.5
-
-
-//
-//  FONT RELATED MACROS
-//
-#define UITABBAR_CUSTOMBADGE_TEXT_FONT  [UIFont systemFontOfSize:10]
+#import "AppDelegate.h"
 
 
 
 @implementation UITabBarItem (CustomBadge)
 
-static NSString *UITabbarCustomBadgeConst = @"UITABBAR_CUSTOMBADGE_CONST";
-
+//
+//  members variables
+//
 NSMutableDictionary *customBadgeLabels;
+
+#ifdef ENABLE_OVERLAPING_FEATURE
+NSMutableDictionary *respectiveTabbars;
+#endif
+
+//
+//  static  variables
+//
+    static NSString *UITabbarCustomBadgeConst = @"UITABBAR_CUSTOMBADGE_CONST";
 
 
 //
@@ -70,9 +53,12 @@ NSMutableDictionary *customBadgeLabels;
             //NSLog(@"custom badge labels %@", customBadgeLabels);
         }
         
-        //  getting the tabbar & particular customBadge
-        UIView *sv = (UIView *)[self performSelector:@selector(view)];
+#ifdef ENABLE_OVERLAPING_FEATURE
+        if(!respectiveTabbars)
+            respectiveTabbars = [[NSMutableDictionary alloc] init];
+#endif
         
+        //  getting the tabbar & particular customBadge
         UILabel *customBadge = (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u", self.hash]] : nil;
         
         if(customBadge == nil)
@@ -91,8 +77,39 @@ NSMutableDictionary *customBadgeLabels;
             [customBadgeLabels setObject:customBadge
                                   forKey:[NSString stringWithFormat:@"%u", self.hash]];
             
-            [sv addSubview:customBadge];
+#ifdef ENABLE_OVERLAPING_FEATURE
             
+            UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u", self.hash]];
+            if(tabbarView == nil)
+            {
+                //  we need to dig for the tabbarview
+                UIView *tabbarItemView = (UIView *)[self performSelector:@selector(view)];
+                while(tabbarItemView != nil)
+                {
+                    if([tabbarItemView isKindOfClass:[UITabBar class]])
+                    {
+                        [respectiveTabbars setObject:tabbarItemView
+                                              forKey:[NSString stringWithFormat:@"%u", self.hash]];
+                        tabbarView = tabbarItemView;
+                        break;
+                    }
+                    tabbarItemView = tabbarItemView.superview;
+                }
+            }
+            
+            //
+            //  now we can say that, tabbarView is cached
+            //
+            [tabbarView addSubview:customBadge];
+#else
+            
+            //
+            //  we want our customBadge inside the
+            //  UITabbarItem
+            //
+            UIView *tabbarItemView = (UIView *)[self performSelector:@selector(view)];
+            [tabbarItemView addSubView:customBadge];
+#endif
             //
             //  SET INITIAL PARAM -- NECESSARY FOR THE FADE IN-OUT ANIMATION
             //
@@ -126,10 +143,12 @@ NSMutableDictionary *customBadgeLabels;
                             } completion:nil];
             
             
+            UIView *tabbarItemView = [(UIView*)self performSelector:@selector(view)];
             
             
             //resize according to the size of the text
-            CGSize maximumSize = CGSizeMake(sv.frame.size.width, UITABBAR_CUSTOMBADGE_HEIGHT - 2 * UITABBAR_CUSTOMBADGE_TOP_BOTTOM_PADDING);
+            CGSize maximumSize = CGSizeMake(tabbarItemView.frame.size.width,
+                                            UITABBAR_CUSTOMBADGE_HEIGHT - 2 * UITABBAR_CUSTOMBADGE_TOP_BOTTOM_PADDING);
             NSString *updatedMsg= value;
             
             CGRect rect = [updatedMsg boundingRectWithSize:maximumSize
@@ -143,11 +162,33 @@ NSMutableDictionary *customBadgeLabels;
             //corner radius is set prior, because of the animation
             customBadge.layer.cornerRadius = MIN(width,
                                                  UITABBAR_CUSTOMBADGE_HEIGHT) / 2;
+
             
-            customBadge.frame = CGRectMake(sv.frame.size.width - width - UITABBAR_CUSTOMBADGE_LEFT_RIGHT_PADDING,
-                                           UITABBAR_CUSTOMBADGE_Y_POSITION_MARGIN,
+            CGFloat positionX;
+            CGFloat positionY;
+#ifdef  ENABLE_OVERLAPING_FEATURE
+            UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u", self.hash]];
+            
+            CGPoint offset = [tabbarItemView convertPoint:CGPointZero toView:tabbarView];
+            
+            NSLog(@"tabbarView (%@)", tabbarView);
+            NSLog(@"tabbarItemView (%@)", tabbarItemView);
+            NSLog(@"offset (%@)", NSStringFromCGPoint(offset));
+            
+            positionX = offset.x;
+            positionY = offset.y;
+#else
+            positionX = 0.0;
+            positionY = 0.0;
+#endif
+            customBadge.frame = CGRectMake(tabbarItemView.frame.size.width - width - UITABBAR_CUSTOMBADGE_LEFT_RIGHT_PADDING - UITABBAR_CUSTOMBADGE_RIGHT_MARGIN + positionX,
+                                           UITABBAR_CUSTOMBADGE_Y_POSITION_MARGIN + positionY,
                                            width,
                                            UITABBAR_CUSTOMBADGE_HEIGHT);
+            
+            
+            
+            
         }
         else
         {
