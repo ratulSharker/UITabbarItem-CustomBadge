@@ -6,7 +6,6 @@
 //
 
 #import "UITabBarItem+CustomBadge.h"
-#import "AppDelegate.h"
 
 
 
@@ -24,7 +23,7 @@ NSMutableDictionary *respectiveTabbars;
 //
 //  static  variables
 //
-    static NSString *UITabbarCustomBadgeConst = @"UITABBAR_CUSTOMBADGE_CONST";
+static NSString *UITabbarCustomBadgeConst = @"UITABBAR_CUSTOMBADGE_CONST";
 
 
 //
@@ -32,7 +31,7 @@ NSMutableDictionary *respectiveTabbars;
 //
 -(NSString*)badgeValue
 {
-    UILabel *customBadge = (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u", self.hash]] : nil;
+    UILabel *customBadge = (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u",(unsigned)self.hash]] : nil;
     return (customBadge != nil) ? customBadge.text : @"";
 }
 
@@ -50,7 +49,10 @@ NSMutableDictionary *respectiveTabbars;
             customBadgeLabels = [[NSMutableDictionary alloc] init];
         else
         {
-            //NSLog(@"custom badge labels %@", customBadgeLabels);
+
+#ifdef UITABBAR_CUSTOMBADGE_ENABLE_LOG
+            NSLog(@"custom badge labels %@", customBadgeLabels);
+#endif
         }
         
 #ifdef ENABLE_OVERLAPING_FEATURE
@@ -59,7 +61,7 @@ NSMutableDictionary *respectiveTabbars;
 #endif
         
         //  getting the tabbar & particular customBadge
-        UILabel *customBadge = (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u", self.hash]] : nil;
+        UILabel *customBadge = (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u", (unsigned) self.hash]] : nil;
         
         if(customBadge == nil)
         {
@@ -75,11 +77,11 @@ NSMutableDictionary *respectiveTabbars;
             customBadge.layer.borderColor = UITABBAR_CUSTOMBADGE_BORDER_COLOR.CGColor;
             
             [customBadgeLabels setObject:customBadge
-                                  forKey:[NSString stringWithFormat:@"%u", self.hash]];
+                                  forKey:[NSString stringWithFormat:@"%u", (unsigned)self.hash]];
             
 #ifdef ENABLE_OVERLAPING_FEATURE
             
-            UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u", self.hash]];
+            UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u",(unsigned)self.hash]];
             if(tabbarView == nil)
             {
                 //  we need to dig for the tabbarview
@@ -89,7 +91,7 @@ NSMutableDictionary *respectiveTabbars;
                     if([tabbarItemView isKindOfClass:[UITabBar class]])
                     {
                         [respectiveTabbars setObject:tabbarItemView
-                                              forKey:[NSString stringWithFormat:@"%u", self.hash]];
+                                              forKey:[NSString stringWithFormat:@"%u",(unsigned)self.hash]];
                         tabbarView = tabbarItemView;
                         break;
                     }
@@ -108,7 +110,7 @@ NSMutableDictionary *respectiveTabbars;
             //  UITabbarItem
             //
             UIView *tabbarItemView = (UIView *)[self performSelector:@selector(view)];
-            [tabbarItemView addSubView:customBadge];
+            [tabbarItemView addSubview:customBadge];
 #endif
             //
             //  SET INITIAL PARAM -- NECESSARY FOR THE FADE IN-OUT ANIMATION
@@ -167,13 +169,15 @@ NSMutableDictionary *respectiveTabbars;
             CGFloat positionX;
             CGFloat positionY;
 #ifdef  ENABLE_OVERLAPING_FEATURE
-            UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u", self.hash]];
+            UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u", (unsigned) self.hash]];
             
             CGPoint offset = [tabbarItemView convertPoint:CGPointZero toView:tabbarView];
-            
+
+#ifdef UITABBAR_CUSTOMBADGE_ENABLE_LOG
             NSLog(@"tabbarView (%@)", tabbarView);
             NSLog(@"tabbarItemView (%@)", tabbarItemView);
             NSLog(@"offset (%@)", NSStringFromCGPoint(offset));
+#endif
             
             positionX = offset.x;
             positionY = offset.y;
