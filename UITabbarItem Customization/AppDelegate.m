@@ -6,6 +6,8 @@
 //
 
 #import "AppDelegate.h"
+#import "UITabBarItem+CustomBadge.h"
+#import "DefaultTabbarBadgeAnimation.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +25,10 @@
                                                                blue:255.0/255.0
                                                               alpha:1.0]];
     [[UITabBar appearance] setBackgroundImage:[UIImage new]];
+    
+    
+    //supplying the animation parameter
+    [UITabBarItem setDefaultAnimationProvider:[[DefaultTabbarBadgeAnimation alloc] init]];
     
     return YES;
 }

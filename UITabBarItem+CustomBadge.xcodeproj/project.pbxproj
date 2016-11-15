@@ -16,6 +16,7 @@
 		E7EB556C1DDABEC20065AD12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55601DDABEC20065AD12 /* main.m */; };
 		E7EB556D1DDABEC20065AD12 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55621DDABEC20065AD12 /* SecondViewController.m */; };
 		E7EB556E1DDABEC20065AD12 /* UITabBarItem+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55651DDABEC20065AD12 /* UITabBarItem+CustomBadge.m */; };
+		E7EB55721DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55711DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		E7EB55621DDABEC20065AD12 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		E7EB55641DDABEC20065AD12 /* UITabBarItem+CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CustomBadge.h"; sourceTree = "<group>"; };
 		E7EB55651DDABEC20065AD12 /* UITabBarItem+CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CustomBadge.m"; sourceTree = "<group>"; };
+		E7EB55701DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTabbarBadgeAnimation.h; sourceTree = "<group>"; };
+		E7EB55711DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTabbarBadgeAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 			children = (
 				E7EB55641DDABEC20065AD12 /* UITabBarItem+CustomBadge.h */,
 				E7EB55651DDABEC20065AD12 /* UITabBarItem+CustomBadge.m */,
+				E7EB55701DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.h */,
+				E7EB55711DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m */,
 			);
 			path = "UITabbarItem+CustomBadge";
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			files = (
 				E7EB556E1DDABEC20065AD12 /* UITabBarItem+CustomBadge.m in Sources */,
 				E7EB556D1DDABEC20065AD12 /* SecondViewController.m in Sources */,
+				E7EB55721DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m in Sources */,
 				E7EB55661DDABEC20065AD12 /* AppDelegate.m in Sources */,
 				E7EB556C1DDABEC20065AD12 /* main.m in Sources */,
 				E7EB556A1DDABEC20065AD12 /* FirstViewController.m in Sources */,

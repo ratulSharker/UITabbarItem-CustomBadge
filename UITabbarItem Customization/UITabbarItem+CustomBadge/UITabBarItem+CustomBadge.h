@@ -7,6 +7,26 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
+//
+//  completion block and protocol declaration
+//  to be used into the custom animation implementation
+//
+typedef void(^BadgeAnimationCompletionBlock)();
+
+@protocol UITabbarItemBadgeAnimation <NSObject>
+
+-(void)UITabbarItemBadgeAppearAnimationForBadge:(UILabel*)badge
+                                   withNewValue:(NSString*)msg
+                                 withCompletion:(BadgeAnimationCompletionBlock)completion;
+
+-(void)UITabbarItemBadgeDisappearAnimationForBadge:(UILabel*)badge
+                                    withCompletion:(BadgeAnimationCompletionBlock)completion;
+@end
+
+
 //
 //  log related macro
 //
@@ -50,5 +70,10 @@
 #define UITABBAR_CUSTOMBADGE_TEXT_FONT  [UIFont systemFontOfSize:10]
 
 @interface UITabBarItem (CustomBadge)
+
+//@property id<UITabbarItemBadgeAnimation> badgeAnimationProvider;
+
+
++(void)setDefaultAnimationProvider:(id<UITabbarItemBadgeAnimation>) animationProvider;
 
 @end
