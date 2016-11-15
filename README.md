@@ -18,7 +18,7 @@ This project is under the MIT Liecense, feel free to use this code base under co
 Installation of `UITabbarItem+CustomBadge` is easy, just add [UITabbarItem+CustomBadge](https://github.com/ratulSharker/UITabbarItem-CustomBadge/tree/master/Example/UITabbarItem%2BCustomBadge) category in your xcode project. Change the content of this category to meet your requiremnt and you're good to go.
 
 ##Advance Customization
-From the release custom animation support is added. A default animation is also added. If no animation specified, there will be no animation by default. You need to specify the animation as follows
+From the release v1.3 custom animation support is added. A default animation is also added. If no animation specified, there will be no animation by default. You need to specify the animation as follows
 
 ```obj-c
       //  here set your desired animation implementation. DefaultTabbarBadgeAnimation is provided as an example
