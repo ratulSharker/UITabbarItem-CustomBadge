@@ -4,6 +4,7 @@
 <br/>
 <br/>
 [![codebeat badge](https://codebeat.co/badges/9c717038-9cae-4a08-b9b7-a8258cc4f4d1)](https://codebeat.co/projects/github-com-ratulsharker-uitabbaritem-custombadge)
+[![Build Status](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge.svg?branch=master)](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge)
 
 ##Background
 There is no public api from [Apple](https://developer.apple.com/). But it's not impossible to cusotmize the 
