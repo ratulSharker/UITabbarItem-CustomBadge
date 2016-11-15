@@ -1,3 +1,3 @@
 language: objective-c
-xcode_project: UITabBarItem+CustomBadge.xcodeproj
-xcode_scheme: UITabbaritem+CustomBadge
+script:
+    - xcodebuild CODE_SIGNING_REQUIRED=NO
