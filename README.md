@@ -6,6 +6,9 @@
 [![codebeat badge](https://codebeat.co/badges/9c717038-9cae-4a08-b9b7-a8258cc4f4d1)](https://codebeat.co/projects/github-com-ratulsharker-uitabbaritem-custombadge)
 [![Build Status](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge.svg?branch=master)](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge)
 
+##Demo
+<img src='https://github.com/ratulSharker/Gif-Demonstration/blob/master/UITabbarItem%2BCustomBadge/UITabbarItem%2BCustomBadge-demo.gif'/>
+
 ##Background
 There is no public api from [Apple](https://developer.apple.com/). But it's not impossible to cusotmize the 
 [UITabbarItem](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITabBarItem_Class/) badge 
@@ -18,19 +21,67 @@ This project is under the MIT Liecense, feel free to use this code base under co
 ##Installation
 Installation of `UITabbarItem+CustomBadge` is easy, just add [UITabbarItem+CustomBadge](https://github.com/ratulSharker/UITabbarItem-CustomBadge/tree/master/Example/UITabbarItem%2BCustomBadge) category in your xcode project. Change the content of this category to meet your requiremnt and you're good to go.
 
-##Advance Customization
-From the release v1.3 custom animation support is added. A default animation is also added. If no animation specified, there will be no animation by default. You need to specify the animation as follows
+Installation of `UITabbarItem+CustomBadge` is easy, include following files in your project
+ + [UITabbarItemAnimation.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabbarItemAnimation.h)
+ + [UITabbarItemBadgeConfiguration.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabbarItemBadgeConfiguration.h)
+ + [UITabBarItem+CustomBadge.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabBarItem%2BCustomBadge.h)
+ + [UITabBarItem+CustomBadge.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabBarItem%2BCustomBadge.m)
+ + [DefaultTabbarBadgeAnimation.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeAnimation.h)
+ + [DefaultTabbarBadgeAnimation.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeAnimation.m)
+ + [DefaultSystemLikeBadgeConfiguration.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultSystemLikeBadgeConfiguration.h)
+ + [DefaultSystemLikeBadgeConfiguration.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultSystemLikeBadgeConfiguration.m)
+
+Now in your project's `AppDelegate`'s `didFinishLaunchingwithOptions...` as follows
 
 ```obj-c
-      //  here set your desired animation implementation. DefaultTabbarBadgeAnimation is provided as an example
-      [UITabBarItem setDefaultAnimationProvider:[[DefaultTabbarBadgeAnimation alloc] init]];   
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+      //supplying the animation parameter
+      [UITabBarItem setDefaultAnimationProvider:[[DefaultTabbarBadgeAnimation alloc] init]];
+      [UITabBarItem setDefaultConfigurationProvider:[[DefaultSystemLikeBadgeConfiguration alloc] init]];
+            
+      //rest of your code goes following...
+            
+      return YES;
+}
 ```
-A good place to do this initialisation is in the `AppDelegate`'s  `DidfinishLaunchingWithOptions` method.
 
+##Advance Customization
+###Customizing the badge appearance
+To change a new appearance for the badge, create a new class extending `NSObject` conforming the protocol [UITabbarItemBadgeConfiguration.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabbarItemBadgeConfiguration.h). Declare all the properties which are in the protocol. In the implementation file set your appropriate values to meet your requirement. Then to use this configuration implementation set as follows :
 
-##Demo
-<img src='https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/ratul_adding_configurable_properties/demo/UITabbarItem%2BCustomBadge%2BDemo.gif'>
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+      //
+      // here assumed that the MyOwnConfiguration is the class that you made for configuration
+      //
+      //supplying the animation parameter
+      [UITabBarItem setDefaultAnimationProvider:[[DefaultTabbarBadgeAnimation alloc] init]];
+      [UITabBarItem setDefaultConfigurationProvider:[[MyOwnConfiguration alloc] init]];
+            
+      //rest of your code goes following...
+            
+      return YES;
+}
+```
 
+###Customizing the animation style
+In order to provide your own animation, declare a new class extends from `NSObject` which conforms to the protocol [UITabbarItemAnimation.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabbarItemAnimation.h). Implement two methods of the protocol. Then to use this configuration implementation set as follows :
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+      //
+      // here assumed that the MyOwnAnimationProvider is the class that you made for configuration
+      //
+      //supplying the animation parameter
+      [UITabBarItem setDefaultAnimationProvider:[[MyOwnAnimationProvider alloc] init]];
+      [UITabBarItem setDefaultConfigurationProvider:[[DefaultSystemLikeBadgeConfiguration alloc] init]];
+            
+      //rest of your code goes following...
+            
+      return YES;
+}
+```
 
-
-Feel free to contact me @Sharker.ratul.08@gmail.com
+Feel free to file an issue if there any.
