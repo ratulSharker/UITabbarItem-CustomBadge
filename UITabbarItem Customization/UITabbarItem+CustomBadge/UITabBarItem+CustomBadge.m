@@ -25,27 +25,95 @@ NSMutableDictionary *respectiveTabbars;
 //
 static NSString *UITabbarCustomBadgeConst = @"UITABBAR_CUSTOMBADGE_CONST";
 static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
+static id<UITabbarItemBadgeConfiguration> badgeConfigurationProvider;
+
+
 
 #pragma mark public class method
+//
+//  let set your animation provider here to be in effect.
+//  a good place to set this animation provider is the
+//  AppDelegate's didFinishLaunchingWithOptions method
+//
 +(void)setDefaultAnimationProvider:(id<UITabbarItemBadgeAnimation>) animationProvider
 {
     badgeAnimationProvider = animationProvider;
 }
 
 //
-//  overriding the getter of the badge value
+//  let you set the badge level customization configuration.
+//  a good place to set this customization configuration is
+//  the AppDelegate's didFinishLaunchingWithOptions method
+//
++(void)setDefaultConfigurationProvider:(id<UITabbarItemBadgeConfiguration>) configurationProvider
+{
+    badgeConfigurationProvider = configurationProvider;
+}
+
+//
+//  this method provided the last assigned customization
+//  configuration. this method facilitates you to not maintaining
+//  a reference to the last assigned confiuration. after assign the
+//  configuration, just forget it, whenever necessary use this method
+//  to grab the last assinged configuration settings
+//
++(id<UITabbarItemBadgeConfiguration>)getDefaultConfigurationProvider
+{
+    return badgeConfigurationProvider;
+}
+
+#pragma mark public instance method
+
+//
+//  this method lets you to re-apply the
+//  last assigned configuration. remember
+//  the scope of this method is upto tabbar item.
+//  so if you want apply the last change to all tabbar
+//  badge, you should loop through all the tabbar item
+//  and call this method for all the tabbar item.
+//
+-(void)reloadBadgeConfiguration
+{
+    UILabel *customBadge = [self getCustomBadgeForCurrentTabbarItem];
+    
+    if(customBadge)
+    {
+        //
+        //  if custom badge been already initialized,
+        //  then modify it, other wise no need to modify
+        //  because initializing a customBadge label
+        //  will be configured with last configuration value
+        //
+        [self applyBadgeConfiguration:customBadge];
+        
+        UIView *tabbarItemView = [(UIView*)self performSelector:@selector(view)];
+        
+        //  determine the size of the badge lable
+        //  determine the frame of the badge
+        CGSize badgeSize = [self sizingBadgeLabel:customBadge
+                          AccordingToMacrosAndMsg:customBadge.text
+                                         InTabbar:tabbarItemView];
+        CGRect badgeFrame = [self getFrameOfBadgeLabelSize:badgeSize
+                                                  InTabbar:tabbarItemView];
+        customBadge.frame = badgeFrame;
+    }
+}
+
+//
+//  overriden the getter of the
+//  badgeValue property declared in
+//  the tababr item
 //
 -(NSString*)badgeValue
 {
-    UILabel *customBadge = (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u",(unsigned)self.hash]] : nil;
+    UILabel *customBadge = [self getCustomBadgeForCurrentTabbarItem];
     return (customBadge != nil) ? customBadge.text : @"";
 }
 
-
-
-
 //
-//  overriding the setter of the badge value
+//  overriden the setter of the
+//  badgeValue property declared in
+//  the tababr item
 //
 -(void) setBadgeValue:(NSString *)value
 {
@@ -130,6 +198,11 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
 }
 
 #pragma mark private helper method
+//
+//  initializes the required dictionary strucures
+//  required for locating the badge label and their
+//  holder view
+//
 -(void)initializeCustomBadgeLabelDictionariesIfNecessary
 {
     if(!customBadgeLabels)
@@ -138,10 +211,8 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     }
     else
     {
-        
-#ifdef UITABBAR_CUSTOMBADGE_ENABLE_LOG
-        NSLog(@"custom badge labels %@", customBadgeLabels);
-#endif
+        if(badgeConfigurationProvider && badgeConfigurationProvider.enableLog)
+            NSLog(@"custom badge labels %@", customBadgeLabels);
     }
     
     //
@@ -154,21 +225,30 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     
 }
 
+//
+//  initializes an label and assign some property according
+//  to the configuration.
+//  beware, returned lable's alpha is set 0.0 and it's hidden
+//
 -(UILabel*)initializeAnBadgeLabelAccordingToMacro
 {
     UILabel *customBadge = [[UILabel alloc] initWithFrame:CGRectZero];
     customBadge.textAlignment = NSTextAlignmentCenter;
-    customBadge.textColor = UITABBAR_CUSTOMBADGE_TEXT_COLOR;
-    customBadge.backgroundColor = UITABBAR_CUSTOMBADGE_BACKGROUND_COLOR;
+
+    [self applyBadgeConfiguration:customBadge];
+    
     [customBadge setUserInteractionEnabled:FALSE];
-    customBadge.font = UITABBAR_CUSTOMBADGE_TEXT_FONT;
+    
     customBadge.clipsToBounds = YES;
-    customBadge.layer.borderWidth = UITABBAR_CUSTOMBADGE_BORDER_WIDTH;
-    customBadge.layer.borderColor = UITABBAR_CUSTOMBADGE_BORDER_COLOR.CGColor;
+    
     customBadge.alpha = 0.0;
     customBadge.hidden = YES;
     return customBadge;
 }
+
+//
+//  returning the top view inside the tabbar
+//
 -(UIView*)getCachedTopTabbarView
 {
     UIView *tabbarView = respectiveTabbars[[NSString stringWithFormat:@"%u",(unsigned)self.hash]];
@@ -192,31 +272,60 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     return tabbarView;
 }
 
--(CGSize)sizingBadgeLabel:(UILabel*)customBadge AccordingToMacrosAndMsg:(NSString*)msg InTabbar:(UIView*)tabbarItemView
+//
+//  provide the label which denote the custom badge label
+//  beware this method could return nil
+//  check after the result been recieved
+//
+-(UILabel*)getCustomBadgeForCurrentTabbarItem
+{
+    return (customBadgeLabels) ? customBadgeLabels[[NSString stringWithFormat:@"%u",(unsigned)self.hash]] : nil;
+}
+
+//
+//  calculates the size according to the assigned
+//  configuration.
+//
+-(CGSize)sizingBadgeLabel:(UILabel*)customBadge
+  AccordingToMacrosAndMsg:(NSString*)msg
+                 InTabbar:(UIView*)tabbarItemView
 {
     //
     //  resize according to the size of the text
     //  only changing the height & width of the
     //
-    CGSize maximumSize = CGSizeMake(tabbarItemView.frame.size.width,
-                                    UITABBAR_CUSTOMBADGE_HEIGHT - 2 * UITABBAR_CUSTOMBADGE_TOP_BOTTOM_PADDING);
+    
+    CGFloat minHeight = badgeConfigurationProvider ? badgeConfigurationProvider.badgeMinHeight : 0;
+    CGFloat topBottomSpacing = badgeConfigurationProvider ? badgeConfigurationProvider.badgeTextTopBottomSpacing : 0;
+    CGFloat leftRightSpacing = badgeConfigurationProvider ? badgeConfigurationProvider.badgeTextLeftRightSpacing : 0;
+    CGFloat badgeLabelRightSpacing = badgeConfigurationProvider ? badgeConfigurationProvider.badgeLabelRightSpacing : 0;
+    
+    CGSize maximumSize = CGSizeMake(tabbarItemView.frame.size.width - badgeLabelRightSpacing,
+                                    minHeight - 2 * topBottomSpacing);
     NSString *updatedMsg= msg;
     CGRect rect = [updatedMsg boundingRectWithSize:maximumSize
                                            options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                         attributes:@{NSFontAttributeName : customBadge.font}
                                            context:nil];
     
-    double width = rect.size.width + 2 * UITABBAR_CUSTOMBADGE_LEFT_RIGHT_PADDING;    //  space allowance for padding
-    width = (width < UITABBAR_CUSTOMBADGE_HEIGHT) ? UITABBAR_CUSTOMBADGE_HEIGHT : width;  //  width must be greater or equal to height
+    CGFloat height = rect.size.height + 2 * topBottomSpacing;   // space allowance for spacing
+    CGFloat width = rect.size.width + 2 * leftRightSpacing;    //  space allowance for spacing
+    
+    width = MAX(height, width);  //  width must be greater or equal to height
     
     //corner radius is set prior, because of the animation
     customBadge.layer.cornerRadius = MIN(width,
-                                         UITABBAR_CUSTOMBADGE_HEIGHT) / 2;
-    
-    return CGSizeMake(width, UITABBAR_CUSTOMBADGE_HEIGHT);
+                                         height) / 2;
+    return CGSizeMake(width, height);
 }
 
--(CGRect)getFrameOfBadgeLabelSize:(CGSize)badgeSize InTabbar:(UIView*)tabbarItemView
+//
+//  calculates the badge frame size
+//  while the badge calculated size is given and
+//  the tabbar view is given
+//
+-(CGRect)getFrameOfBadgeLabelSize:(CGSize)badgeSize
+                         InTabbar:(UIView*)tabbarItemView
 {
     //
     //  determining the origin
@@ -228,11 +337,12 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     
     CGPoint offset = [tabbarItemView convertPoint:CGPointZero toView:tabbarView];
     
-#ifdef UITABBAR_CUSTOMBADGE_ENABLE_LOG
-    NSLog(@"tabbarView (%@)", tabbarView);
-    NSLog(@"tabbarItemView (%@)", tabbarItemView);
-    NSLog(@"offset (%@)", NSStringFromCGPoint(offset));
-#endif
+    if(badgeConfigurationProvider && badgeConfigurationProvider.enableLog)
+    {
+        NSLog(@"tabbarView (%@)", tabbarView);
+        NSLog(@"tabbarItemView (%@)", tabbarItemView);
+        NSLog(@"offset (%@)", NSStringFromCGPoint(offset));
+    }
     
     positionX = offset.x;
     positionY = offset.y;
@@ -241,8 +351,11 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     positionY = 0.0;
 #endif
 
-    positionX = tabbarItemView.frame.size.width - badgeSize.width - UITABBAR_CUSTOMBADGE_LEFT_RIGHT_PADDING - UITABBAR_CUSTOMBADGE_RIGHT_MARGIN + positionX;
-    positionY = UITABBAR_CUSTOMBADGE_Y_POSITION_MARGIN + positionY;
+    CGFloat badgeLableRightSpacing = badgeConfigurationProvider ? badgeConfigurationProvider.badgeLabelRightSpacing : 0;
+    CGFloat badgeLabelTopSpacing = badgeConfigurationProvider ? badgeConfigurationProvider.badgeLabelTopSpacing : 0;
+    
+    positionX = tabbarItemView.frame.size.width - badgeSize.width - badgeLableRightSpacing + positionX;
+    positionY = badgeLabelTopSpacing + positionY;
     
     return CGRectMake(positionX,
                       positionY,
@@ -250,7 +363,39 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
                       badgeSize.height);
 }
 
--(void)callBadgeAnimationProviderAppearanceAnimationwithBadge:(UILabel*)badgeLabel withValue:(NSString*)msg withCompletion:(BadgeAnimationCompletionBlock)completion
+//
+//  this method helps to apply some basic configuration
+//  except sizing and origin.
+//
+-(void)applyBadgeConfiguration:(UILabel*)customBadge
+{
+    customBadge.textColor = (badgeConfigurationProvider && badgeConfigurationProvider.badgeTextColor)
+    ? badgeConfigurationProvider.badgeTextColor
+    : [UIColor blackColor];
+    
+    customBadge.backgroundColor = (badgeConfigurationProvider && badgeConfigurationProvider.badgeBackgroundColor)
+    ? badgeConfigurationProvider.badgeBackgroundColor
+    :[UIColor blackColor];
+    
+    customBadge.layer.borderColor = (badgeConfigurationProvider && badgeConfigurationProvider.badgeBorderColor)
+    ? badgeConfigurationProvider.badgeBorderColor.CGColor
+    : [UIColor blackColor].CGColor;
+    
+    customBadge.layer.borderWidth = (badgeConfigurationProvider)
+    ? badgeConfigurationProvider.badgeBorderWidth
+    : 2.0;
+    
+    customBadge.font = (badgeConfigurationProvider && badgeConfigurationProvider.badgeFont)
+    ? badgeConfigurationProvider.badgeFont
+    : [UIFont systemFontOfSize:18];
+}
+
+//
+//  this method facilitates to call the animation delegate
+//
+-(void)callBadgeAnimationProviderAppearanceAnimationwithBadge:(UILabel*)badgeLabel
+                                                    withValue:(NSString*)msg
+                                               withCompletion:(BadgeAnimationCompletionBlock)completion
 {
     if(badgeAnimationProvider &&
        [badgeAnimationProvider respondsToSelector:@selector(UITabbarItemBadgeAppearAnimationForBadge:
@@ -260,15 +405,19 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     }
     else
     {
-#ifdef UITABBAR_CUSTOMBADGE_ENABLE_LOG
-        NSLog(@"tabbaritem badge animation provider appear animation not provided");
-#endif
+        if(badgeConfigurationProvider && badgeConfigurationProvider.enableLog)
+            NSLog(@"tabbaritem badge animation provider appear animation not provided");
+        
         if(completion)
             completion();
     }
 }
 
--(void)callBadgeAnimationProviderDisappearanceAnimationwithBadge:(UILabel*)badgeLabel withCompletion:(BadgeAnimationCompletionBlock)completion
+//
+//  this method facilitates to call the animation delegate
+//
+-(void)callBadgeAnimationProviderDisappearanceAnimationwithBadge:(UILabel*)badgeLabel
+                                                  withCompletion:(BadgeAnimationCompletionBlock)completion
 {
     if(badgeAnimationProvider &&
        [badgeAnimationProvider respondsToSelector:@selector(UITabbarItemBadgeDisappearAnimationForBadge:withCompletion:)])
@@ -277,9 +426,8 @@ static id<UITabbarItemBadgeAnimation>   badgeAnimationProvider;
     }
     else
     {
-#ifdef UITABBAR_CUSTOMBADGE_ENABLE_LOG
-        NSLog(@"tabbaritem badge animation provider disappear animation not provided");
-#endif
+        if(badgeConfigurationProvider && badgeConfigurationProvider.enableLog)
+            NSLog(@"tabbaritem badge animation provider disappear animation not provided");
         
         if(completion)
             completion();

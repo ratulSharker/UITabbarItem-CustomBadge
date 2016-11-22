@@ -8,6 +8,8 @@
 #import "AppDelegate.h"
 #import "UITabBarItem+CustomBadge.h"
 #import "DefaultTabbarBadgeAnimation.h"
+#import "DefaultSystemLikeBadgeConfiguration.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,18 +19,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    [[UITabBar appearance] setShadowImage:[UIImage new]];
-    [[UITabBar appearance] setBackgroundColor:[UIColor colorWithRed:154.0/255.0
-                                                              green:206.0/255.0
-                                                               blue:255.0/255.0
-                                                              alpha:1.0]];
-    [[UITabBar appearance] setBackgroundImage:[UIImage new]];
-    
     
     //supplying the animation parameter
     [UITabBarItem setDefaultAnimationProvider:[[DefaultTabbarBadgeAnimation alloc] init]];
+    [UITabBarItem setDefaultConfigurationProvider:[[DefaultSystemLikeBadgeConfiguration alloc] init]];
+    
+    if([_window.rootViewController isKindOfClass:[UITabBarController class]])
+    {
+        UITabBarController *rootTabbar = (UITabBarController*)_window.rootViewController;
+        rootTabbar.viewControllers = [self getChildViewControllers];
+    }
+    
+    self.amIUnderstood = NO;
     
     return YES;
 }
@@ -54,5 +56,27 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark private initializer helper method
+-(NSArray<UIViewController*>*)getChildViewControllers
+{
+    // set some view controller on that
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    ViewController *firstVC = [storyboard instantiateViewControllerWithIdentifier:@"viewcontroller"],
+    *secondVC = [storyboard instantiateViewControllerWithIdentifier:@"viewcontroller"],
+    *thirdVC = [storyboard instantiateViewControllerWithIdentifier:@"viewcontroller"];
+    
+    UITabBarItem *item1 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:0],
+    *item2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:1],
+    *item3 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:2];
+    
+    firstVC.tabBarItem = item1;
+    secondVC.tabBarItem = item2;
+    thirdVC.tabBarItem = item3;
+    
+    return @[firstVC, secondVC, thirdVC];
+}
+
 
 @end

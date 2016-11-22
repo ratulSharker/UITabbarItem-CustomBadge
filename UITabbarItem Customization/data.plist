@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge text</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeValueSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge bg color</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeBackgroundColorSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge txt color</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeTextColorSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge border color</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeBorderColorSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge border width</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeBorderWidthSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge font size</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeFontSizeSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge txt top-bottom spacing</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeTextTopBottomSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge txt left-right spacing</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeTextLeftRightSettings:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge label top spacing</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeLabelTopSpacing:</string>
+	</dict>
+	<dict>
+		<key>placeholder.key</key>
+		<string>Enter badge label right spacing</string>
+		<key>input.text.key</key>
+		<string></string>
+		<key>selector.key</key>
+		<string>badgeLabelRightSpacing:</string>
+	</dict>
+</array>
+</plist>
