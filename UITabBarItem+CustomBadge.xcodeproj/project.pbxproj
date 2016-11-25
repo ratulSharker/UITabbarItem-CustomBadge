@@ -7,42 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E72FD60F1DE346DE003D8D6F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E72FD60E1DE346DE003D8D6F /* data.plist */; };
-		E79FFAD31DE2A1AC00C66E3E /* InputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E79FFAD21DE2A1AC00C66E3E /* InputFieldCell.m */; };
-		E7CCE28A1DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCE2891DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.m */; };
-		E7EB55661DDABEC20065AD12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55571DDABEC20065AD12 /* AppDelegate.m */; };
-		E7EB55671DDABEC20065AD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EB55581DDABEC20065AD12 /* Assets.xcassets */; };
-		E7EB55681DDABEC20065AD12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EB55591DDABEC20065AD12 /* LaunchScreen.storyboard */; };
-		E7EB55691DDABEC20065AD12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EB555B1DDABEC20065AD12 /* Main.storyboard */; };
-		E7EB556A1DDABEC20065AD12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB555E1DDABEC20065AD12 /* ViewController.m */; };
-		E7EB556B1DDABEC20065AD12 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7EB555F1DDABEC20065AD12 /* Info.plist */; };
-		E7EB556C1DDABEC20065AD12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55601DDABEC20065AD12 /* main.m */; };
-		E7EB556E1DDABEC20065AD12 /* UITabBarItem+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55651DDABEC20065AD12 /* UITabBarItem+CustomBadge.m */; };
-		E7EB55721DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB55711DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m */; };
+		E70AED921DE8105900FA64CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED851DE8105900FA64CA /* AppDelegate.m */; };
+		E70AED931DE8105900FA64CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E70AED861DE8105900FA64CA /* Assets.xcassets */; };
+		E70AED941DE8105900FA64CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70AED871DE8105900FA64CA /* LaunchScreen.storyboard */; };
+		E70AED951DE8105900FA64CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70AED891DE8105900FA64CA /* Main.storyboard */; };
+		E70AED961DE8105900FA64CA /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E70AED8B1DE8105900FA64CA /* data.plist */; };
+		E70AED971DE8105900FA64CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E70AED8C1DE8105900FA64CA /* Info.plist */; };
+		E70AED981DE8105900FA64CA /* InputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED8E1DE8105900FA64CA /* InputFieldCell.m */; };
+		E70AED991DE8105900FA64CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED8F1DE8105900FA64CA /* main.m */; };
+		E70AED9A1DE8105900FA64CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED911DE8105900FA64CA /* ViewController.m */; };
+		E70AEDA41DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED9D1DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m */; };
+		E70AEDA51DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED9F1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m */; };
+		E70AEDA61DE8106500FA64CA /* UITabBarItem+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AEDA11DE8106500FA64CA /* UITabBarItem+CustomBadge.m */; };
+		E70AEDA81DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E70AEDA71DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E70AED841DE8105900FA64CA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E70AED851DE8105900FA64CA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E70AED861DE8105900FA64CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E70AED881DE8105900FA64CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E70AED8A1DE8105900FA64CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E70AED8B1DE8105900FA64CA /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		E70AED8C1DE8105900FA64CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E70AED8D1DE8105900FA64CA /* InputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFieldCell.h; sourceTree = "<group>"; };
+		E70AED8E1DE8105900FA64CA /* InputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputFieldCell.m; sourceTree = "<group>"; };
+		E70AED8F1DE8105900FA64CA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E70AED901DE8105900FA64CA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E70AED911DE8105900FA64CA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E70AED9C1DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultSystemLikeBadgeConfiguration.h; sourceTree = "<group>"; };
+		E70AED9D1DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultSystemLikeBadgeConfiguration.m; sourceTree = "<group>"; };
+		E70AED9E1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTabbarBadgeAnimation.h; sourceTree = "<group>"; };
+		E70AED9F1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTabbarBadgeAnimation.m; sourceTree = "<group>"; };
+		E70AEDA01DE8106500FA64CA /* UITabBarItem+CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CustomBadge.h"; sourceTree = "<group>"; };
+		E70AEDA11DE8106500FA64CA /* UITabBarItem+CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CustomBadge.m"; sourceTree = "<group>"; };
+		E70AEDA21DE8106500FA64CA /* UITabbarItemAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabbarItemAnimation.h; sourceTree = "<group>"; };
+		E70AEDA31DE8106500FA64CA /* UITabbarItemBadgeConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabbarItemBadgeConfiguration.h; sourceTree = "<group>"; };
+		E70AEDA71DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITabbarItem-CustomBadge.podspec"; sourceTree = "<group>"; };
 		E723D93E1CFD3D5E001E4D53 /* UITabBarItem+CustomBadge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITabBarItem+CustomBadge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E72FD60E1DE346DE003D8D6F /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
-		E79FFAD11DE2A1AC00C66E3E /* InputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFieldCell.h; sourceTree = "<group>"; };
-		E79FFAD21DE2A1AC00C66E3E /* InputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputFieldCell.m; sourceTree = "<group>"; };
-		E7CCE2881DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultSystemLikeBadgeConfiguration.h; sourceTree = "<group>"; };
-		E7CCE2891DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultSystemLikeBadgeConfiguration.m; sourceTree = "<group>"; };
-		E7CCE28E1DE1BBA8001C2710 /* UITabbarItemBadgeConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITabbarItemBadgeConfiguration.h; sourceTree = "<group>"; };
-		E7CCE28F1DE1BBDC001C2710 /* UITabbarItemAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITabbarItemAnimation.h; sourceTree = "<group>"; };
-		E7EB55561DDABEC20065AD12 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E7EB55571DDABEC20065AD12 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E7EB55581DDABEC20065AD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7EB555A1DDABEC20065AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E7EB555C1DDABEC20065AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E7EB555D1DDABEC20065AD12 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E7EB555E1DDABEC20065AD12 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E7EB555F1DDABEC20065AD12 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7EB55601DDABEC20065AD12 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E7EB55641DDABEC20065AD12 /* UITabBarItem+CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CustomBadge.h"; sourceTree = "<group>"; };
-		E7EB55651DDABEC20065AD12 /* UITabBarItem+CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CustomBadge.m"; sourceTree = "<group>"; };
-		E7EB55701DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTabbarBadgeAnimation.h; sourceTree = "<group>"; };
-		E7EB55711DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTabbarBadgeAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E70AED831DE8105900FA64CA /* Example-demonstration */ = {
+			isa = PBXGroup;
+			children = (
+				E70AED861DE8105900FA64CA /* Assets.xcassets */,
+				E70AED841DE8105900FA64CA /* AppDelegate.h */,
+				E70AED851DE8105900FA64CA /* AppDelegate.m */,
+				E70AED891DE8105900FA64CA /* Main.storyboard */,
+				E70AED8B1DE8105900FA64CA /* data.plist */,
+				E70AED901DE8105900FA64CA /* ViewController.h */,
+				E70AED911DE8105900FA64CA /* ViewController.m */,
+				E70AED8D1DE8105900FA64CA /* InputFieldCell.h */,
+				E70AED8E1DE8105900FA64CA /* InputFieldCell.m */,
+				E70AEDA91DE810C100FA64CA /* Supporting Files */,
+			);
+			path = "Example-demonstration";
+			sourceTree = "<group>";
+		};
+		E70AED9B1DE8106500FA64CA /* UITabbarItem+CustomBadge */ = {
+			isa = PBXGroup;
+			children = (
+				E70AED9C1DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.h */,
+				E70AED9D1DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m */,
+				E70AED9E1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.h */,
+				E70AED9F1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m */,
+				E70AEDA01DE8106500FA64CA /* UITabBarItem+CustomBadge.h */,
+				E70AEDA11DE8106500FA64CA /* UITabBarItem+CustomBadge.m */,
+				E70AEDA21DE8106500FA64CA /* UITabbarItemAnimation.h */,
+				E70AEDA31DE8106500FA64CA /* UITabbarItemBadgeConfiguration.h */,
+			);
+			path = "UITabbarItem+CustomBadge";
+			sourceTree = "<group>";
+		};
+		E70AEDA91DE810C100FA64CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E70AED871DE8105900FA64CA /* LaunchScreen.storyboard */,
+				E70AED8C1DE8105900FA64CA /* Info.plist */,
+				E70AED8F1DE8105900FA64CA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E723D9351CFD3D5E001E4D53 = {
 			isa = PBXGroup;
 			children = (
-				E7EB55551DDABEC20065AD12 /* UITabbarItem Customization */,
+				E70AEDA71DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec */,
+				E70AED9B1DE8106500FA64CA /* UITabbarItem+CustomBadge */,
+				E70AED831DE8105900FA64CA /* Example-demonstration */,
 				E723D93F1CFD3D5E001E4D53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,49 +116,6 @@
 				E723D93E1CFD3D5E001E4D53 /* UITabBarItem+CustomBadge.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E7EB55551DDABEC20065AD12 /* UITabbarItem Customization */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB55581DDABEC20065AD12 /* Assets.xcassets */,
-				E7EB55631DDABEC20065AD12 /* UITabbarItem+CustomBadge */,
-				E7EB55561DDABEC20065AD12 /* AppDelegate.h */,
-				E7EB55571DDABEC20065AD12 /* AppDelegate.m */,
-				E7EB555B1DDABEC20065AD12 /* Main.storyboard */,
-				E7EB555D1DDABEC20065AD12 /* ViewController.h */,
-				E7EB555E1DDABEC20065AD12 /* ViewController.m */,
-				E79FFAD11DE2A1AC00C66E3E /* InputFieldCell.h */,
-				E79FFAD21DE2A1AC00C66E3E /* InputFieldCell.m */,
-				E72FD60E1DE346DE003D8D6F /* data.plist */,
-				E7EB556F1DDABEDA0065AD12 /* Supporting Files */,
-			);
-			path = "UITabbarItem Customization";
-			sourceTree = "<group>";
-		};
-		E7EB55631DDABEC20065AD12 /* UITabbarItem+CustomBadge */ = {
-			isa = PBXGroup;
-			children = (
-				E7CCE28F1DE1BBDC001C2710 /* UITabbarItemAnimation.h */,
-				E7CCE28E1DE1BBA8001C2710 /* UITabbarItemBadgeConfiguration.h */,
-				E7EB55641DDABEC20065AD12 /* UITabBarItem+CustomBadge.h */,
-				E7EB55651DDABEC20065AD12 /* UITabBarItem+CustomBadge.m */,
-				E7EB55701DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.h */,
-				E7EB55711DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m */,
-				E7CCE2881DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.h */,
-				E7CCE2891DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.m */,
-			);
-			path = "UITabbarItem+CustomBadge";
-			sourceTree = "<group>";
-		};
-		E7EB556F1DDABEDA0065AD12 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB55591DDABEC20065AD12 /* LaunchScreen.storyboard */,
-				E7EB555F1DDABEC20065AD12 /* Info.plist */,
-				E7EB55601DDABEC20065AD12 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,11 +175,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7EB556B1DDABEC20065AD12 /* Info.plist in Resources */,
-				E7EB55691DDABEC20065AD12 /* Main.storyboard in Resources */,
-				E7EB55671DDABEC20065AD12 /* Assets.xcassets in Resources */,
-				E72FD60F1DE346DE003D8D6F /* data.plist in Resources */,
-				E7EB55681DDABEC20065AD12 /* LaunchScreen.storyboard in Resources */,
+				E70AEDA81DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec in Resources */,
+				E70AED951DE8105900FA64CA /* Main.storyboard in Resources */,
+				E70AED931DE8105900FA64CA /* Assets.xcassets in Resources */,
+				E70AED961DE8105900FA64CA /* data.plist in Resources */,
+				E70AED971DE8105900FA64CA /* Info.plist in Resources */,
+				E70AED941DE8105900FA64CA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,31 +191,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7EB556E1DDABEC20065AD12 /* UITabBarItem+CustomBadge.m in Sources */,
-				E7EB55721DDAD3490065AD12 /* DefaultTabbarBadgeAnimation.m in Sources */,
-				E79FFAD31DE2A1AC00C66E3E /* InputFieldCell.m in Sources */,
-				E7EB55661DDABEC20065AD12 /* AppDelegate.m in Sources */,
-				E7CCE28A1DE1AB3C001C2710 /* DefaultSystemLikeBadgeConfiguration.m in Sources */,
-				E7EB556C1DDABEC20065AD12 /* main.m in Sources */,
-				E7EB556A1DDABEC20065AD12 /* ViewController.m in Sources */,
+				E70AED921DE8105900FA64CA /* AppDelegate.m in Sources */,
+				E70AED991DE8105900FA64CA /* main.m in Sources */,
+				E70AEDA51DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m in Sources */,
+				E70AED9A1DE8105900FA64CA /* ViewController.m in Sources */,
+				E70AEDA41DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m in Sources */,
+				E70AED981DE8105900FA64CA /* InputFieldCell.m in Sources */,
+				E70AEDA61DE8106500FA64CA /* UITabBarItem+CustomBadge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E7EB55591DDABEC20065AD12 /* LaunchScreen.storyboard */ = {
+		E70AED871DE8105900FA64CA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E7EB555A1DDABEC20065AD12 /* Base */,
+				E70AED881DE8105900FA64CA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		E7EB555B1DDABEC20065AD12 /* Main.storyboard */ = {
+		E70AED891DE8105900FA64CA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E7EB555C1DDABEC20065AD12 /* Base */,
+				E70AED8A1DE8105900FA64CA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -310,7 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = "$(SRCROOT)/UITabbarItem Customization/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Example-demonstration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.UITabbaritem-CustomBadge";
 				PRODUCT_NAME = "UITabBarItem+CustomBadge";
@@ -323,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				INFOPLIST_FILE = "$(SRCROOT)/UITabbarItem Customization/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Example-demonstration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.UITabbaritem-CustomBadge";
 				PRODUCT_NAME = "UITabBarItem+CustomBadge";
