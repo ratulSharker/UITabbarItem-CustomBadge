@@ -5,6 +5,9 @@
 <br/>
 [![codebeat badge](https://codebeat.co/badges/9c717038-9cae-4a08-b9b7-a8258cc4f4d1)](https://codebeat.co/projects/github-com-ratulsharker-uitabbaritem-custombadge)
 [![Build Status](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge.svg?branch=master)](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge)
+[![Cocoapod](https://img.shields.io/badge/pod-2.0.1-red.svg)](https://cocoapods.org/?q=UITabbarItem-Custombadge)
+[![Platform](https://img.shields.io/badge/platform-ios-green.svg)](https://en.wikipedia.org/wiki/IOS)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 ##Demo
 <img src='https://github.com/ratulSharker/Gif-Demonstration/blob/master/UITabbarItem%2BCustomBadge/UITabbarItem%2BCustomBadge-demo.gif'/>
@@ -19,6 +22,12 @@ change the badge value settings related function calls. This is how the whole th
 This project is under the MIT Liecense, feel free to use this code base under compilance.
 
 ##Installation
+###Using Cocoapod
+```ruby
+pod 'UITabbarItem-CustomBadge'
+```
+
+###Manual 
 Installation of `UITabbarItem+CustomBadge` is easy, just add [UITabbarItem+CustomBadge](https://github.com/ratulSharker/UITabbarItem-CustomBadge/tree/master/Example/UITabbarItem%2BCustomBadge) category in your xcode project. Change the content of this category to meet your requiremnt and you're good to go.
 
 Installation of `UITabbarItem+CustomBadge` is easy, include following files in your project
@@ -31,9 +40,18 @@ Installation of `UITabbarItem+CustomBadge` is easy, include following files in y
  + [DefaultSystemLikeBadgeConfiguration.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultSystemLikeBadgeConfiguration.h)
  + [DefaultSystemLikeBadgeConfiguration.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultSystemLikeBadgeConfiguration.m)
 
-Now in your project's `AppDelegate`'s `didFinishLaunchingwithOptions...` as follows
+###Initializing
+Now initilaize custom badge in your project's `AppDelegate`'s `didFinishLaunchingwithOptions...` as follows
 
 ```obj-c
+//other imports...
+#import "UITabbarItem+CustomBadge.h"
+#import "DefaultTabbarBadgeAnimation.h"
+#import "DefaultSystemLikeBadgeConfiguration.h"
+
+...
+...
+...
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
       //supplying the animation parameter
