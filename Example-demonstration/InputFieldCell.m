@@ -3,7 +3,6 @@
 //  UITabBarItem+CustomBadge
 //
 //  Created by Ratul Sharker on 11/21/16.
-//  Copyright © 2016 test. All rights reserved.
 //
 
 #import "InputFieldCell.h"
@@ -39,7 +38,7 @@
 }
 
 #pragma mark UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;

@@ -3,7 +3,6 @@
 //  UITabBarItem+CustomBadge
 //
 //  Created by Ratul Sharker on 11/20/16.
-//  Copyright © 2016 test. All rights reserved.
 //
 
 #import "DefaultSystemLikeBadgeConfiguration.h"

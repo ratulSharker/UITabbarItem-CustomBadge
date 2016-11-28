@@ -3,7 +3,6 @@
 //  UITabBarItem+CustomBadge
 //
 //  Created by Ratul Sharker on 11/20/16.
-//  Copyright © 2016 test. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,7 +12,6 @@
 //
 //  a default implemented of the badge visual appearance
 //
-
 @interface DefaultSystemLikeBadgeConfiguration : NSObject <UITabbarItemBadgeConfiguration>
 
 @property BOOL enableLog;

@@ -107,12 +107,10 @@
 #pragma mark selector's implementation
 -(void)badgeValueSettings:(NSString*)text
 {
-    UITabBarItem *curTabbar = [self getCurrentTabbarItem];
-    
     if(text.length)
-        curTabbar.badgeValue = text;
+        self.tabBarItem.badgeValue = text;
     else
-        curTabbar.badgeValue = nil;
+        self.tabBarItem.badgeValue = nil;
 }
 
 -(void)badgeBackgroundColorSettings:(NSString*)text
@@ -212,11 +210,6 @@
 
 
 #pragma mark private helper method
--(UITabBarItem*)getCurrentTabbarItem
-{
-    NSUInteger selectedIndex = self.tabBarController.selectedIndex;
-    return (UITabBarItem*)self.tabBarController.tabBar.items[selectedIndex];
-}
 -(UIColor *)colorExtractorFromText:(NSString*)text
 {
     text = [NSString stringWithFormat:@"%@Color", text.lowercaseString];

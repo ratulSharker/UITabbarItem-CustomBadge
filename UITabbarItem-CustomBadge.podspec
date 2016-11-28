@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "UITabbarItem-CustomBadge"
-  s.version      = "2.0"
+  s.version      = "2.0.1"
   s.summary      = "A refined replacement of UITabbarItem badge."
 
   # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = "In ios UITabbarItem badge customization is pretty limited, to overcome that issue this pod is created."
 
   s.homepage     = "https://github.com/ratulSharker/UITabbarItem-CustomBadge"
-  s.screenshots  = "https://github.com/ratulSharker/Gif-Demonstration/blob/master/UITabbarItem%2BCustomBadge/UITabbarItem%2BCustomBadge-demo.gif"
+  s.screenshots  = "https://raw.githubusercontent.com/ratulSharker/Gif-Demonstration/master/UITabbarItem%2BCustomBadge/UITabbarItem%2BCustomBadge-demo.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
   s.author             = { "Ratul sharker" => "sharker.ratul.08@gmail.com" }
   # Or just: s.author    = "Ratul sharker"
   # s.authors            = { "Ratul sharker" => "sharker.ratul.08@gmail.com" }
-  s.social_media_url   = "https://www.facebook.com/ratul.sharker"
+  # s.social_media_url   = "https://bd.linkedin.com/in/ratul-sharker-34a65b25"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-   s.platform     = :ios, "6.0"
+  s.platform     = :ios, "6.0"
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
@@ -74,8 +74,7 @@ Pod::Spec.new do |s|
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
   #
-
-  s.source       = { :git => "https://github.com/ratulSharker/UITabbarItem-CustomBadge.git"}
+  s.source       = { :git => "https://github.com/ratulSharker/UITabbarItem-CustomBadge.git", :tag => "2.0.1"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -113,7 +112,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.frameworks = "Foundation", "UIKit"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -125,7 +124,7 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"

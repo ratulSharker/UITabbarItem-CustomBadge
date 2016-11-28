@@ -41,16 +41,25 @@ typedef void(^BadgeAnimationCompletionBlock)();
 //  - badge : A UILabel, which is the actual badge text.
 //  - msg   : NSString represent the next msg to assign. You may want to animate the text assign action
 //  - completion : a completion which is sent by the UITabbar+CustomBadge that ensure the final state,
-//                  you are about to execute that blocl after all you animation been completed.
+//                  you are about to execute that block after all you animation been completed.
 //
 -(void)UITabbarItemBadgeAppearAnimationForBadge:(UILabel*)badge
                                    withNewValue:(NSString*)msg
                                  withCompletion:(BadgeAnimationCompletionBlock)completion;
 //
+//  This function will be called when the badge value will set to nil.
+//  In case of nil value settings, badge is intended to disappear.
+//  In this method, it is not expected to change the frame or size
+//  of the badge label. If you had to change it somehow, please save the frame
+//  and the size before you gonna change it, and finally when all the transition
+//  completed, it's the implementer's responsibility to set them / keep their
+//  previous value.
 //
-//
-//
-//
+//  @param
+//  - badge : A UILabel, which is the actual badge text.
+//  - completion : a completion which is sent by the UITabbar+CustomBadge that ensure the final state,
+//                  you are about to execute that block after all you animation been completed.
+
 -(void)UITabbarItemBadgeDisappearAnimationForBadge:(UILabel*)badge
                                     withCompletion:(BadgeAnimationCompletionBlock)completion;
 @end
