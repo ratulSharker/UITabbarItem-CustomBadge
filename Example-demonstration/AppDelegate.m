@@ -75,6 +75,19 @@
     secondVC.tabBarItem = item2;
     thirdVC.tabBarItem = item3;
     
+    firstVC.view.backgroundColor = [UIColor colorWithRed:32.0/255.0
+                                                   green:71.0/255.0
+                                                    blue:100.0/255.0
+                                                   alpha:1.0];
+    secondVC.view.backgroundColor = [UIColor colorWithRed:255.0/255.0
+                                                    green:209.0/255.0
+                                                     blue:32.0/255.0
+                                                    alpha:1.0];
+    thirdVC.view.backgroundColor = [UIColor colorWithRed:255.0/255.0
+                                                   green:44.0/255.0
+                                                    blue:157.0/255.0
+                                                   alpha:1.0];
+    
     return @[firstVC, secondVC, thirdVC];
 }
 

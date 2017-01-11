@@ -12,7 +12,7 @@
 	</dict>
 	<dict>
 		<key>placeholder.key</key>
-		<string>Enter badge bg color</string>
+		<string>Enter badge bg color eg. red, yellow, green etc</string>
 		<key>input.text.key</key>
 		<string></string>
 		<key>selector.key</key>
@@ -20,7 +20,7 @@
 	</dict>
 	<dict>
 		<key>placeholder.key</key>
-		<string>Enter badge txt color</string>
+		<string>Enter badge txt color eg. red, yellow, green etc</string>
 		<key>input.text.key</key>
 		<string></string>
 		<key>selector.key</key>
@@ -28,7 +28,7 @@
 	</dict>
 	<dict>
 		<key>placeholder.key</key>
-		<string>Enter badge border color</string>
+		<string>Enter badge border color  eg. red, yellow, green etc</string>
 		<key>input.text.key</key>
 		<string></string>
 		<key>selector.key</key>

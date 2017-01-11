@@ -10,6 +10,11 @@
 #import "InputFieldCell.h"
 #import "AppDelegate.h"
 
+#import "DefaultTabbarBadgeAnimation.h"
+#import "DefaultTabbarBadgeScaleAnimation.h"
+#import "DefaultTabbarBadgeFlipAnimation.h"
+
+
 #define PLACEHOLDER_TEXT_KEY    @"placeholder.key"
 #define INPUT_TEXT_KEY          @"input.text.key"
 #define SELECTOR_KEY            @"selector.key"
@@ -20,6 +25,11 @@
 {
     NSArray <NSMutableDictionary*> *arrayData;
     AppDelegate *appDelegate;
+    
+    UIAlertView *keyboardAlert,
+                *animationChangeAlert;
+    
+    NSArray *animationStyleObjects;
 }
 @end
 
@@ -34,6 +44,13 @@
     [self loadMutableDataFromPlist];
     
     appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    animationStyleObjects = @[
+                              [DefaultTabbarBadgeAnimation new],
+                              [DefaultTabbarBadgeScaleAnimation new],
+                              [[DefaultTabbarBadgeFlipAnimation alloc] initWithFlipDirection:HORIZONTAL_FLIP],
+                              [[DefaultTabbarBadgeFlipAnimation alloc] initWithFlipDirection:VERTICAL_FLIP]
+                              ];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -42,13 +59,28 @@
     
     if(appDelegate.amIUnderstood == NO)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Do You understand ?"
-                                                            message:@"Run the Application in simulator and check the option \"Hardware > Keyboard > Connect Hardware Keyboard\""
-                                                           delegate:self
-                                                  cancelButtonTitle:@"NO"
-                                                  otherButtonTitles:@"YES", nil];
-        [alertView show];
+        keyboardAlert = [[UIAlertView alloc] initWithTitle:@"Do You understand ?"
+                                                   message:@"Run the Application in simulator and check the option \"Hardware > Keyboard > Connect Hardware Keyboard\""
+                                                  delegate:self
+                                         cancelButtonTitle:@"NO"
+                                         otherButtonTitles:@"YES", nil];
+        [keyboardAlert show];
     }
+}
+
+#pragma mark IBActions
+- (IBAction)onAnimationStyleChange:(id)sender
+{
+    animationChangeAlert = [[UIAlertView alloc] initWithTitle:@"Choose animation style"
+                                                      message:@"Define how your badge animation will be"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:  @"Default",
+                                                                @"Pop",
+                                                                @"Horizontal Flip",
+                                                                @"Vertical Flip", nil];
+    
+    [animationChangeAlert show];
 }
 
 #pragma mark UITableViewDataSource
@@ -77,15 +109,27 @@
 #pragma mark UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == alertView.cancelButtonIndex)
+    if(alertView == keyboardAlert)
     {
-        //  user cancel's it, so we will show it in future
-        appDelegate.amIUnderstood = NO;
+        if(buttonIndex == alertView.cancelButtonIndex)
+        {
+            //  user cancel's it, so we will show it in future
+            appDelegate.amIUnderstood = NO;
+        }
+        else
+        {
+            //  user understands the consequences so leave him alone to play
+            appDelegate.amIUnderstood = YES;
+        }
     }
     else
     {
-        //  user understands the consequences so leave him alone to play
-        appDelegate.amIUnderstood = YES;
+        if(alertView.cancelButtonIndex != buttonIndex)
+        {
+            //button pressed which is not cancel button
+            id<UITabbarItemBadgeAnimation> animationObj = animationStyleObjects[buttonIndex - 1];
+            [UITabBarItem setDefaultAnimationProvider:animationObj];
+        }
     }
 }
 

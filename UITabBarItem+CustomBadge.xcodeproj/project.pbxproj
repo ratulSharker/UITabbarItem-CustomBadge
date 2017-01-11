@@ -20,6 +20,8 @@
 		E70AEDA51DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AED9F1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m */; };
 		E70AEDA61DE8106500FA64CA /* UITabBarItem+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AEDA11DE8106500FA64CA /* UITabBarItem+CustomBadge.m */; };
 		E70AEDA81DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E70AEDA71DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec */; };
+		E7941F9A1E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7941F991E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.m */; };
+		E7CC914A1E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CC91491E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		E70AEDA31DE8106500FA64CA /* UITabbarItemBadgeConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabbarItemBadgeConfiguration.h; sourceTree = "<group>"; };
 		E70AEDA71DE8107500FA64CA /* UITabbarItem-CustomBadge.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITabbarItem-CustomBadge.podspec"; sourceTree = "<group>"; };
 		E723D93E1CFD3D5E001E4D53 /* UITabBarItem+CustomBadge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITabBarItem+CustomBadge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7941F981E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTabbarBadgeScaleAnimation.h; sourceTree = "<group>"; };
+		E7941F991E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTabbarBadgeScaleAnimation.m; sourceTree = "<group>"; };
+		E7CC91481E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTabbarBadgeFlipAnimation.h; sourceTree = "<group>"; };
+		E7CC91491E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTabbarBadgeFlipAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,10 @@
 				E70AED9D1DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m */,
 				E70AED9E1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.h */,
 				E70AED9F1DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m */,
+				E7941F981E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.h */,
+				E7941F991E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.m */,
+				E7CC91481E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.h */,
+				E7CC91491E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.m */,
 				E70AEDA01DE8106500FA64CA /* UITabBarItem+CustomBadge.h */,
 				E70AEDA11DE8106500FA64CA /* UITabBarItem+CustomBadge.m */,
 				E70AEDA21DE8106500FA64CA /* UITabbarItemAnimation.h */,
@@ -195,7 +205,9 @@
 				E70AED991DE8105900FA64CA /* main.m in Sources */,
 				E70AEDA51DE8106500FA64CA /* DefaultTabbarBadgeAnimation.m in Sources */,
 				E70AED9A1DE8105900FA64CA /* ViewController.m in Sources */,
+				E7CC914A1E260CEE00E94E26 /* DefaultTabbarBadgeFlipAnimation.m in Sources */,
 				E70AEDA41DE8106500FA64CA /* DefaultSystemLikeBadgeConfiguration.m in Sources */,
+				E7941F9A1E24D8A600891F8A /* DefaultTabbarBadgeScaleAnimation.m in Sources */,
 				E70AED981DE8105900FA64CA /* InputFieldCell.m in Sources */,
 				E70AEDA61DE8106500FA64CA /* UITabBarItem+CustomBadge.m in Sources */,
 			);
