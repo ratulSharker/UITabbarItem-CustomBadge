@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "UITabbarItem-CustomBadge"
-  s.version      = "2.0.2"
+  s.version      = "2.0.3"
   s.summary      = "A refined replacement of UITabbarItem badge."
 
   # This description is used to generate tags and improve search results.
@@ -74,7 +74,7 @@ Pod::Spec.new do |s|
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
   #
-  s.source       = { :git => "https://github.com/ratulSharker/UITabbarItem-CustomBadge.git", :tag => "2.0.2"}
+  s.source       = { :git => "https://github.com/ratulSharker/UITabbarItem-CustomBadge.git", :tag => "2.0.3"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
