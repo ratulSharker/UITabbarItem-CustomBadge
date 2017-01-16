@@ -5,7 +5,7 @@
 <br/>
 [![codebeat badge](https://codebeat.co/badges/9c717038-9cae-4a08-b9b7-a8258cc4f4d1)](https://codebeat.co/projects/github-com-ratulsharker-uitabbaritem-custombadge)
 [![Build Status](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge.svg?branch=master)](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge)
-[![Cocoapod](https://img.shields.io/badge/pod-2.0.1-red.svg)](https://cocoapods.org/?q=UITabbarItem-Custombadge)
+[![Cocoapod](https://img.shields.io/badge/pod-2.0.2-red.svg)](https://cocoapods.org/?q=UITabbarItem-Custombadge)
 [![Platform](https://img.shields.io/badge/platform-ios-green.svg)](https://en.wikipedia.org/wiki/IOS)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
@@ -37,6 +37,10 @@ Installation of `UITabbarItem+CustomBadge` is easy, include following files in y
  + [UITabBarItem+CustomBadge.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/UITabBarItem%2BCustomBadge.m)
  + [DefaultTabbarBadgeAnimation.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeAnimation.h)
  + [DefaultTabbarBadgeAnimation.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeAnimation.m)
+ + [DefaultTabbarBadgeFlipAnimation.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeFlipAnimation.h)
+ + [DefaultTabbarBadgeFlipAnimation.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeFlipAnimation.m)
+ + [DefaultTabbarBadgeScaleAnimation.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeScaleAnimation.h)
+ + [DefaultTabbarBadgeScaleAnimation.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%2BCustomBadge/DefaultTabbarBadgeScaleAnimation.m)
  + [DefaultSystemLikeBadgeConfiguration.h](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultSystemLikeBadgeConfiguration.h)
  + [DefaultSystemLikeBadgeConfiguration.m](https://github.com/ratulSharker/UITabbarItem-CustomBadge/blob/master/UITabbarItem%20Customization/UITabbarItem%2BCustomBadge/DefaultSystemLikeBadgeConfiguration.m)
 
@@ -48,6 +52,7 @@ Now initilaize custom badge in your project's `AppDelegate`'s `didFinishLaunchin
 #import "UITabbarItem+CustomBadge.h"
 #import "DefaultTabbarBadgeAnimation.h"
 #import "DefaultSystemLikeBadgeConfiguration.h"
+
 
 ...
 ...
@@ -103,3 +108,10 @@ In order to provide your own animation, declare a new class extends from `NSObje
 ```
 
 Feel free to file an issue if there any.
+
+
+##Change log 2.0.2
+1. Two new animation class are added as the default animation class.
+2. Example project updated to show demonstration of custom animation classes.
+3. Two new animation uses `UIViewAnimationOptionAllowUserInteraction` which is available ios8.0+ so the project min sdk version changes to ios8.0, if you want to support lower version of SDK please ignore these two animation classes.
+4. Project builded with xcode8.2.1 .
