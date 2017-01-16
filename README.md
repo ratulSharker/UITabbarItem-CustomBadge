@@ -5,7 +5,7 @@
 <br/>
 [![codebeat badge](https://codebeat.co/badges/9c717038-9cae-4a08-b9b7-a8258cc4f4d1)](https://codebeat.co/projects/github-com-ratulsharker-uitabbaritem-custombadge)
 [![Build Status](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge.svg?branch=master)](https://travis-ci.org/ratulSharker/UITabbarItem-CustomBadge)
-[![Cocoapod](https://img.shields.io/badge/pod-2.0.2-red.svg)](https://cocoapods.org/?q=UITabbarItem-Custombadge)
+[![Cocoapod](https://img.shields.io/badge/pod-2.0.3-red.svg)](https://cocoapods.org/?q=UITabbarItem-Custombadge)
 [![Platform](https://img.shields.io/badge/platform-ios-green.svg)](https://en.wikipedia.org/wiki/IOS)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
@@ -109,6 +109,8 @@ In order to provide your own animation, declare a new class extends from `NSObje
 
 Feel free to file an issue if there any.
 
+##Change log 2.0.3
+1. version 2.0.2 was pointing in the wrong tag 2.0.1, thats why cocoapod was installing previous version files. Cocoapod doesn't support resubmission of same version, thats why a new version is needed to introduced to resolve the problem.
 
 ##Change log 2.0.2
 1. Two new animation class are added as the default animation class.
